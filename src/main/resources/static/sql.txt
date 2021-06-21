@@ -1,0 +1,19 @@
+create database mybatis_db default character set utf8mb4 default collate utf8mb4_general_ci;
+-- 마이바티스 테스트용 디비 생성
+
+
+create user 'mybatis'@'%' identified by 'mybatis1234';
+-- 마이바티스가 모든 루트에서 접속되도록
+
+
+grant all on mybatis_db.* to 'mybatis'@'%';
+-- 모든권한 부여
+
+use mybatis_db;
+
+create table company (
+	id integer auto_increment primary key,
+    company_name varchar(128),
+    company_address varchar(128),
+    index (company_name)
+)
